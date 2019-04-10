@@ -19,33 +19,36 @@
              <th>Id</th>
                <th>Nombre</th>
                <th>Precio</th>
-               <th>Des</th>
+               <th>Descripción</th>
                <th>Status</th>
                <th>Editar</th>
                <th>Eliminar</th>
              </thead>
              <tbody>
-              {{-- @if($products->count())  
-              @foreach($products as $producto)   --}}
+        
+              @forelse($products as $product)  
               <tr>
-              <td>{{--$producto->id--}}</td>
-                <td>{{--$product->nombre--}}</td>
-                <td>{{--$product->precio--}}</td>
-                <td>{{--$product->descripcion--}}</td>
-                <td>{{--$product->status--}}</td>
-                <td><a href="" class="btn btn-info" >Editar Producto</a></td>
-                <td><a href="" class="btn btn-warning" >Eliminar Producto</a></td>
+                  <td>{{ $product->id }}</td>
+                  <td>{{ $product->name }}</td>
+                  <td>{{ $product->price }}</td>
+                  <td>{{ $product->description }}</td>
+                  <td>{{ $product->status }}</td>
+                  <td><a href="" class="btn btn-success" >Editar Producto</a></td>
+                  <td><a href="" class="btn btn-warning" >Eliminar Producto</a></td>
                </tr>
-               {{-- @endforeach 
-               @else --}}
+              @empty
                <tr>
                 <td colspan="8">JupaEcomac</td>
               </tr>
-              {{-- @endif --}}
+              @endforelse 
+            
+              
+
             </tbody>
  
           </table>
         </div>
+        {{ $products->render() }}
       </div>
     </div>
   </div>
